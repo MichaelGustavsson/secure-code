@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../site.css" />
+    <script src="./add-user.js" defer></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>Skapa konto</h1>
+        <section>
+          <form id="add-user">
+            <div class="form-controls">
+              <label for="userName">Användarnamn</label
+              ><input
+                type="text"
+                name="userName"
+                id="userName"
+                placeholder="Ange E-postadress som användarnamn" />
+            </div>
+            <div class="form-controls">
+              <label for="firstName">Förnamn</label
+              ><input
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="Ange förnamn" />
+            </div>
+            <div class="form-controls">
+              <label for="lastName">Efternamn</label
+              ><input
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="Ange efternamn" />
+            </div>
+            <div class="form-controls">
+              <label for="password">Lösenord</label
+              ><input type="password" name="password" id="password" />
+            </div>
+            <div class="form-controls">
+              <label for="confirmPassword">Bekräfta lösenord</label
+              ><input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword" />
+            </div>
+            <div class="btn-container">
+              <button type="submit" class="btn">Skapa Konto</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

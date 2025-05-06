@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;400;900&family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,800;1,200;1,400;1,500;1,600&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+main {
+  padding: 3rem 2rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+#login {
+  padding: 1.88rem 0;
+  margin: 0 1rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+}
+
+.form-controls {
+  margin-bottom: 1rem;
+}
+
+.form-controls label {
+  display: block;
+}
+
+.form-controls input {
+  width: 100%;
+  padding: 0.63rem;
+  border: solid 1px #ddd;
+}
+
+.form-controls input:focus {
+  outline: none !important;
+  border: solid 1px #ef6c00;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.btn {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #fff;
+  background: #000;
+  border: solid 1px #ef6c00;
+  line-height: 1.2;
+  width: 60%;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0.65rem 1.25rem;
+  outline: none !important;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn:hover {
+  background: #e65100;
+  color: #333;
+}
