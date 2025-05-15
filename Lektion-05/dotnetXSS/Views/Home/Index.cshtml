@@ -1,3 +1,39 @@
 ﻿<section>
-    <h2>Bilregister</h2>
+    <h2 class="page-title">Bilregister</h2>
+    <section class="card">
+        <div class="form-controls">
+            <label for="regNo">Sök på registreringsnummer</label>
+            <input type="text" value="" name="regNumber" id="regNo" />
+        </div>
+        <div class="btn-container">
+            <button class="btn" type="button" id="search">Sök</button>
+        </div>
+    </section>
+    <p id="details"></p>
 </section>
+
+@* Lägg till JavaScript *@
+<script>
+    const button = document.querySelector("#search").addEventListener('click', findVehicle);
+
+    async function findVehicle() {
+        @* Göra ett fetch anrop till Home Controller FindVehicle *@
+        try {
+            const regNo = document.querySelector("#regNo").value;
+            console.log("REGNO:", regNo);
+
+            const response = await fetch('/Home/FindVehicle?regNumber=' + regNo);
+            @* const response = await fetch('/Home/FindVehicleWithView?regNumber=' + regNo); *@
+
+            if (response.ok) {
+                const result = await response.text();
+                console.log("RESULT:", result)
+                document.querySelector("#details").innerHTML = result;
+            } else {
+                document.querySelector("#details").innerHTML = result;
+            }
+        } catch (error) {
+            console.error("ERROR:", error)
+        }
+    }
+</script>

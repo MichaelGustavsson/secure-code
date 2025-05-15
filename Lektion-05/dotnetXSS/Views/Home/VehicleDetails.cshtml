@@ -1,0 +1,9 @@
+@model string;
+
+@using System.Web;
+
+<section>
+  @* @Html.Raw(Model) *@
+  @* @Model *@
+  @HttpUtility.HtmlEncode(Model)
+</section>
