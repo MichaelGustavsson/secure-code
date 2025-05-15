@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using dotnetXSS.Models;
 
 namespace dotnetXSS.Controllers;
 
@@ -24,7 +25,8 @@ public class HomeController : Controller
     [HttpGet()]
     public IActionResult FindVehicleWithView(string regNumber)
     {
-        var model = $"The vehicle with registrationnumber <i>{regNumber}</i> is a Volvo V70 2014";
+        // var model = $"The vehicle with registrationnumber <i>{regNumber}</i> is a Volvo V70 2014";
+        var model = new SearchModel { RegNumber = $"The vehicle with registrationnumber <i>{regNumber}</i> is a Volvo V70 2014" };
         return View("VehicleDetails", model);
     }
 }

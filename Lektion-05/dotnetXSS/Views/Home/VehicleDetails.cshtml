@@ -1,9 +1,16 @@
-@model string;
+@* @model string; *@
+@model dotnetXSS.Models.SearchModel;
 
 @using System.Web;
 
 <section>
   @* @Html.Raw(Model) *@
   @* @Model *@
-  @HttpUtility.HtmlEncode(Model)
+  @* @HttpUtility.HtmlEncode(Model) *@
+
+  @* @Html.Raw(Model.RegNumber) *@
+  @* Sanitize... *@
+  @Html.Raw(HttpUtility.HtmlEncode(Model.RegNumber))
+  @* @Model.RegNumber *@
+  @* @HttpUtility.HtmlEncode(Model.RegNumber) *@
 </section>

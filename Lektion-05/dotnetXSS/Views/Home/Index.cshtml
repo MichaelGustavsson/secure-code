@@ -1,4 +1,6 @@
-﻿<section>
+﻿@model dotnetXSS.Models.SearchModel;
+
+<section>
     <h2 class="page-title">Bilregister</h2>
     <section class="card">
         <div class="form-controls">
@@ -11,6 +13,41 @@
     </section>
     <p id="details"></p>
 </section>
+<hr />
+
+@* Gamla klassiska sättet i asp.net core... *@
+<section>
+    @using (Html.BeginForm("FindVehicleWithView", "Home", FormMethod.Get))
+    {
+        <h2 class="page-title">Bilregister med formulär V1(Det gamla sättet)</h2>
+        <section class="card">
+            <div class="form-controls">
+                <label for="regNo">Sök på registreringsnummer</label>
+                <input type="text" value="" name="regNumber" id="regNo" />
+            </div>
+            <div class="btn-container">
+                <button class="btn" type="submit" id="search">Sök</button>
+            </div>
+        </section>
+        <p id="details"></p>
+    }
+</section>
+
+@* Det nya rekommenderade sättet att skapa formulär på i asp.net core *@
+
+<hr />
+<section>
+    <h2 class="page-title">Bilregister med formulär V2(Det nya sättet)</h2>
+    <form asp-controller="Home" asp-action="FindVehicleWithView" method="get" class="card">
+        <div class="form-controls">
+            <label asp-for="RegNumber">Sök på registreringsnummer</label>
+            <input asp-for="RegNumber" />
+        </div>
+        <div class="btn-container">
+            <button class="btn" type="submit">Sök</button>
+        </div>
+    </form>
+</section>
 
 @* Lägg till JavaScript *@
 <script>
@@ -22,13 +59,14 @@
             const regNo = document.querySelector("#regNo").value;
             console.log("REGNO:", regNo);
 
-            const response = await fetch('/Home/FindVehicle?regNumber=' + regNo);
-            @* const response = await fetch('/Home/FindVehicleWithView?regNumber=' + regNo); *@
+            @* const response = await fetch('/Home/FindVehicle?regNumber=' + regNo); *@
+            const response = await fetch('/Home/FindVehicleWithView?regNumber=' + regNo);
 
             if (response.ok) {
                 const result = await response.text();
                 console.log("RESULT:", result)
-                document.querySelector("#details").innerHTML = result;
+                @* result måste saneras innan vi placerar den i innerHTML *@
+                    document.querySelector("#details").innerHTML = result;
             } else {
                 document.querySelector("#details").innerHTML = result;
             }
