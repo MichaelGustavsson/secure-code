@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/Lektioner/Lektion-12/e-shop-starter/api/api.csproj": {}
+    "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/GitHub/Lektion-12/e-shop-starter/api/api.csproj": {}
   },
   "projects": {
-    "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/Lektioner/Lektion-12/e-shop-starter/api/api.csproj": {
+    "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/GitHub/Lektion-12/e-shop-starter/api/api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/Lektioner/Lektion-12/e-shop-starter/api/api.csproj",
+        "projectUniqueName": "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/GitHub/Lektion-12/e-shop-starter/api/api.csproj",
         "projectName": "api",
-        "projectPath": "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/Lektioner/Lektion-12/e-shop-starter/api/api.csproj",
+        "projectPath": "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/GitHub/Lektion-12/e-shop-starter/api/api.csproj",
         "packagesPath": "/Users/michaelgustavsson/.nuget/packages/",
-        "outputPath": "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/Lektioner/Lektion-12/e-shop-starter/api/obj/",
+        "outputPath": "/Users/michaelgustavsson/Documents/Development/Courses/SäkerSystemUtveckling/GitHub/Lektion-12/e-shop-starter/api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/michaelgustavsson/.nuget/NuGet/NuGet.Config"
