@@ -47,7 +47,7 @@ namespace api.Controllers
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(FindProduct), new { id = product.Id });
+            return RedirectToAction(nameof(FindProduct), new { id = product.Id });
 
         }
 

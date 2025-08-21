@@ -1,4 +1,6 @@
 using api.Data;
+using api.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,16 +15,28 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddCors();
 
+builder.Services.AddIdentityApiEndpoints<User>(options =>
+{
+    options.User.RequireUniqueEmail = true;
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<AppDbContext>();
+
 var app = builder.Build();
 
 // Pipeline
 // ================================================================================
 app.UseCors(c => c.AllowAnyHeader()
     .AllowAnyMethod()
-    .WithOrigins("http://localhost:3000","https://localhost:3000")
+    .WithOrigins("http://localhost:3000", "https://localhost:3000")
 );
 
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllers();
+
+app.MapGroup("api").MapIdentityApi<User>();
 
 // Seed dummy data...
 // ================================================================================
@@ -32,7 +46,8 @@ var services = scope.ServiceProvider;
 try
 {
     var context = services.GetRequiredService<AppDbContext>();
-    await InitializeDb.SeedData(context);
+    var userManager = services.GetRequiredService<UserManager<User>>();
+    await InitializeDb.SeedData(context,userManager);
 }
 catch (Exception ex)
 {
