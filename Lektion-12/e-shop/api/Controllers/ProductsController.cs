@@ -2,11 +2,13 @@ using api.Data;
 using api.Models;
 using api.ViewModels;
 using Ganss.Xss;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController(AppDbContext context) : ControllerBase
@@ -51,6 +53,7 @@ namespace api.Controllers
 
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult> ListAllProducts()
         {

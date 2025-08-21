@@ -22,13 +22,17 @@ builder.Services.AddIdentityApiEndpoints<User>(options =>
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<AppDbContext>();
 
+builder.Services.ConfigureApplicationCookie(options => { options.Cookie.SameSite = SameSiteMode.None; });
+
 var app = builder.Build();
 
 // Pipeline
 // ================================================================================
-app.UseCors(c => c.AllowAnyHeader()
+app.UseCors(c => c
+    .AllowAnyHeader()
     .AllowAnyMethod()
-    .WithOrigins("http://localhost:3000", "https://localhost:3000")
+    .AllowCredentials()
+    .WithOrigins("http://localhost:3000", "https://localhost:3000","http://127.0.0.1:3000","https://127.0.0.1:3000")
 );
 
 app.UseAuthentication();
